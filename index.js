@@ -1,4 +1,4 @@
-const tutorials = [
+let tutorials = [
   'what does the this keyword mean?',
   'What is the Constructor OO pattern?',
   'implementing Blockchain Web API',
@@ -12,5 +12,11 @@ const tutorials = [
 ];
 
 const titleCased = () => {
+  tutorials = tutorials.map(sentence => {
+    let splitSentenceArray = sentence.split(' ');
+    let convertedSentenceArray = splitSentenceArray.map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    let reducedSentence = convertedSentenceArray.reduce((accumulator, currentValue) => `${accumulator} ${currentValue}`)
+    return reducedSentence
+  })
   return tutorials
 }
